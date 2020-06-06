@@ -220,7 +220,7 @@ class PPO():
                 #self.save_models(cur_iter)
 
     def save_models(self,episode):
-        self.saver.save(tf.get_default_session(), './chk_final/',global_step=episode)
+        self.saver.save(tf.get_default_session(), './chk_ppo_tf1/',global_step=episode)
 
     def get_samples(self):
         s = self.env.reset()
