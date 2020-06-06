@@ -7,8 +7,8 @@ import gym
 import pybullet_envs
 
 
-from ppo_tf1 import PPO as ppo_tf1
-from ppo_tf2 import PPO as ppo_tf2
+#from ppo_tf1 import PPO as ppo_tf1
+#from ppo_tf2 import PPO as ppo_tf2
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='PPO Params')
