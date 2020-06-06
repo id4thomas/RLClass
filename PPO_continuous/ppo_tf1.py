@@ -232,7 +232,7 @@ class PPO():
             #env.render()
             action,value = self.net.get_action(np.expand_dims(s,axis=0))
 
-            next_s, reward, done, _ = env.step(action)
+            next_s, reward, done, _ = self.env.step(action)
             
             reward_sum += reward
 
