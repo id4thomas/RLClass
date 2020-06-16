@@ -68,10 +68,11 @@ class ACModel():
     def get_action(self,state):
         pi=self.actor(state,training=False)
         #sigma=self.sigma
-        print(pi,pi.shape)
+        #print(pi,pi.shape)
         val=self.critic(state,training=False)
+        pi[0] /= pi[0].sum()
         a = np.random.choice(range(self.a_size), p=pi[0])
-        print(a)
+        #print(a)
         #print(mu,sigma)
         #random sample action
         #a=np.random.normal(loc=mu, scale=sigma)[0]
