@@ -23,8 +23,8 @@ class ACModel():
         self.a_size=env.action_space.n
         self.s_size=env.observation_space.shape[0]
 
-        self.action_low=env.action_space.low
-        self.action_high=env.action_space.high
+        #self.action_low=env.action_space.low
+        #self.action_high=env.action_space.high
 
         self.actor_lr=1e-4
         self.critic_lr=1e-3
