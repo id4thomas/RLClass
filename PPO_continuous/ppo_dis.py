@@ -6,7 +6,7 @@ from tensorflow import keras
 import gym
 
 import tensorflow.keras.backend as K
-import tensorflow_probability as tfp
+#import tensorflow_probability as tfp
 import os
 import random
 
@@ -117,7 +117,7 @@ class PPO():
 
     def save_models(self,iter):
         #save model
-        self.net.critic.save('./chk_carpole/critic'+str(iter)+'.h5')
+        self.net.critic.save('./chk_cartpole/critic'+str(iter)+'.h5')
         self.net.actor.save('./chk_cartpole/actor'+str(iter)+'.h5')
 
     def get_samples(self):
