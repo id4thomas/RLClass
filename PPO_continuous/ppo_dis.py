@@ -70,7 +70,7 @@ class ACModel():
         #sigma=self.sigma
         print(pi,pi.shape)
         val=self.critic(state,training=False)
-        a = np.random.choice(range(self.a_size), p=pi)
+        a = np.random.choice(range(self.a_size), p=pi[0])
         print(a)
         #print(mu,sigma)
         #random sample action
