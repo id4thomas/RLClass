@@ -20,8 +20,8 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 class ACModel():
     def __init__(self,env):
-        self.a_size=envs.action_space.n
-        self.s_size=envs.observation_space.shape[0]
+        self.a_size=env.action_space.n
+        self.s_size=env.observation_space.shape[0]
 
         self.action_low=env.action_space.low
         self.action_high=env.action_space.high
