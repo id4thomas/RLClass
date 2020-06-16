@@ -174,7 +174,6 @@ class PPO():
         with tf.GradientTape(persistent=True) as t:
             t.watch(self.net.actor.trainable_weights)
             t.watch(self.net.critic.trainable_weights)
-            s = np.transpose(s, (0, 2, 3, 1))
             net_pi=self.net.actor(s)
             old_net_pi=self.old_net.actor(s)
 
