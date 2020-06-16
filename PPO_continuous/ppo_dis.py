@@ -211,7 +211,7 @@ class PPO():
         cur_iter=0
 
         #Trajectory collection
-        num_steps=3072
+        num_steps=300
         #num_steps=10
         #avg_100=0
         
