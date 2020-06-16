@@ -4,7 +4,6 @@ import tensorflow as tf
 from tensorflow import keras
 
 import gym
-import pybullet_envs
 
 import tensorflow.keras.backend as K
 import tensorflow_probability as tfp
@@ -81,26 +80,6 @@ class ACModel():
         #print(a)
         return a,val
 
-    '''
-    def get_logp(self,s,a):
-        mu=self.actor(s,training=True)
-        sigma=self.sigma
-
-        e1=0.5 * tf.reduce_sum(tf.square((a - mu) / (tf.exp(sigma))), axis=-1) 
-        e2=0.5 * np.log(2.0 * np.pi) * tf.cast(tf.shape(mu)[-1],tf.float32)
-        e3=tf.reduce_sum(sigma, axis=-1)
-        
-        logp = -(e1+e2+e3 )
-        return logp
-
-    def get_logp2(self,s,a):
-        mu=self.actor(s,training=True)
-        sigma=self.sigma
-        normal_dist=tfp.distributions.Normal(loc=mu,scale=sigma)
-        log_p = normal_dist.log_prob(a)
-        return log_p'''
-
-
     def apply_grads(self,a_grads,c_grads):
     #def apply_grads(self,grads,trainables):
         grads=a_grads+c_grads
@@ -138,8 +117,8 @@ class PPO():
 
     def save_models(self,iter):
         #save model
-        self.net.critic.save('./chk_ppo/critic'+str(iter)+'.h5')
-        self.net.actor.save('./chk_ppo/actor'+str(iter)+'.h5')
+        self.net.critic.save('./chk_carpole/critic'+str(iter)+'.h5')
+        self.net.actor.save('./chk_cartpole/actor'+str(iter)+'.h5')
 
     def get_samples(self):
         #Run episode
