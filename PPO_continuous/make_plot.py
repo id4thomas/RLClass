@@ -22,9 +22,9 @@ for iter in range(10,args.end_iter+10,10):
     for i in range(100):
         s=env.reset()
         while True:
-            action,value = self.net.get_action(np.expand_dims(s,axis=0))
+            action,value =net.get_action(np.expand_dims(s,axis=0))
 
-            next_s, reward, done, _ = self.env.step(action)
+            next_s, reward, done, _ = env.step(action)
             
             reward_sum += reward
 
