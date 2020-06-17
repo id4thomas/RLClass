@@ -23,7 +23,7 @@ for iter in range(10,args.end_iter+10,10):
         s=env.reset()
         while True:
             pi=net.predict(np.expand_dims(s,axis=0))
-            prob=pi[0].numpy()
+            prob=pi[0]
             prob /= prob.sum()
             a = np.random.choice(range(self.a_size), p=prob)
 
