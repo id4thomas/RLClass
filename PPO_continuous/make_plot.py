@@ -3,13 +3,19 @@ import gym
 import tensorflow as tf
 from tensorflow import keras
 import numpy as np
+import argparse
+
+parser = argparse.ArgumentParser(description='DQN Training for Hitman GO')
+parser.add_argument('--end_iter', type=int, default=1000,
+                    help='End Iteration')
+args = parser.parse_args()
 
 env = gym.make('CartPole-v1')
-chk_dir='./chk_cartpole/
+chk_dir='./chk_cartpole/'
 
 avg_records=[]
 # for chk in checkpoints:
-for iter in range(10,1010,10):
+for iter in range(10,args.end_iter+10,10):
     net=keras.models.load_model('./chk_cartpole/actor'+str(iter)+'.h5')
     #avg 100 rewards
     avg_100=0
