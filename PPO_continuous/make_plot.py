@@ -11,6 +11,7 @@ parser.add_argument('--end_iter', type=int, default=1000,
 args = parser.parse_args()
 
 env = gym.make('CartPole-v1')
+a_size=env.action_space.n
 chk_dir='./chk_cartpole/'
 
 avg_records=[]
@@ -25,7 +26,7 @@ for iter in range(10,args.end_iter+10,10):
             pi=net.predict(np.expand_dims(s,axis=0))
             prob=pi[0]
             prob /= prob.sum()
-            a = np.random.choice(range(self.a_size), p=prob)
+            a = np.random.choice(range(a_size), p=prob)
 
             #action,value =net.get_action(np.expand_dims(s,axis=0))
 
