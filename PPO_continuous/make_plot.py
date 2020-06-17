@@ -22,9 +22,14 @@ for iter in range(10,args.end_iter+10,10):
     for i in range(100):
         s=env.reset()
         while True:
-            action,value =net.get_action(np.expand_dims(s,axis=0))
+            pi=net.predict(np.expand_dims(s,axis=0))
+            prob=pi[0].numpy()
+            prob /= prob.sum()
+            a = np.random.choice(range(self.a_size), p=prob)
 
-            next_s, reward, done, _ = env.step(action)
+            #action,value =net.get_action(np.expand_dims(s,axis=0))
+
+            next_s, reward, done, _ = env.step(a)
             
             reward_sum += reward
 
