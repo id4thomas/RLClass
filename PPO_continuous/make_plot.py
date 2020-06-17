@@ -37,7 +37,6 @@ for iter in range(10,args.end_iter+10,10):
 
             if done:
                 break
-            steps+=1
 
             s = next_s
         avg_100+=reward_sum
