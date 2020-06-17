@@ -41,6 +41,7 @@ for iter in range(10,args.end_iter+10,10):
             s = next_s
         avg_100+=reward_sum
     avg_records.append(avg_100/100)
+    print('Iter {} AVg {}'.format(iter,avg_100/100))
 
 plt.plot(np.arange((len(avg_records))), avg_records, label='PPO Cartpole')
 fig =plt.gcf()
