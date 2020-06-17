@@ -22,6 +22,7 @@ for iter in range(10,args.end_iter+10,10):
     avg_100=0
     for i in range(100):
         s=env.reset()
+        reward_sum=0
         while True:
             pi=net.predict(np.expand_dims(s,axis=0))
             prob=pi[0]
