@@ -39,7 +39,7 @@ for iter in range(100,args.end_iter+10,100):
                 break
 
             s = next_s
-        avg_100+=reward_sum
+        avg_10+=reward_sum
     avg_records.append(avg_10/10)
     print('Iter {} AVG {}'.format(iter,avg_10/10))
 
