@@ -16,11 +16,11 @@ chk_dir='./chk_cartpole/'
 
 avg_records=[]
 # for chk in checkpoints:
-for iter in range(10,args.end_iter+10,10):
+for iter in range(100,args.end_iter+10,100):
     net=keras.models.load_model('./chk_cartpole/actor'+str(iter)+'.h5')
     #avg 100 rewards
-    avg_100=0
-    for i in range(100):
+    avg_10=0
+    for i in range(10):
         s=env.reset()
         reward_sum=0
         while True:
@@ -40,8 +40,8 @@ for iter in range(10,args.end_iter+10,10):
 
             s = next_s
         avg_100+=reward_sum
-    avg_records.append(avg_100/100)
-    print('Iter {} AVg {}'.format(iter,avg_100/100))
+    avg_records.append(avg_10/10)
+    print('Iter {} AVG {}'.format(iter,avg_10/10))
 
 plt.plot(np.arange((len(avg_records))), avg_records, label='PPO Cartpole')
 fig =plt.gcf()
